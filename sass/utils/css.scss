@@ -1,0 +1,27 @@
+@use "initial";
+
+@function buildVarName($name, $prefix: "", $suffix: "") {
+  @return "--#{initial.$var-prefix}#{$prefix}#{$name}#{$suffix}";
+}
+
+@mixin register-var($name, $value, $prefix: "", $suffix: "") {
+  $varName: buildVarName($name, $prefix, $suffix);
+  #{$varName}: #{$value};
+}
+
+@mixin register-vars($vars, $prefix: "", $suffix: "") {
+  @each $name, $value in $vars {
+    @include register-var($name, $value, $prefix, $suffix);
+  }
+}
+
+@function getVar($name, $prefix: "", $suffix: "") {
+  $varName: buildVarName($name, $prefix, $suffix);
+  @return var(#{$varName});
+}
+
+@function getVarWithBackup($name, $backup, $prefix: "", $suffix: "") {
+  $varName: buildVarName($name, $prefix, $suffix);
+  $backupName: buildVarName($backup, $prefix, $suffix);
+  @return var(#{$varName}, var(#{$backupName}));
+}

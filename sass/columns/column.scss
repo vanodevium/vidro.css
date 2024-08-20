@@ -1,0 +1,139 @@
+@use "sass:math";
+
+@use "../utils/css";
+@use "../mixins";
+
+.column {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: css.getVar("column-gap");
+
+  .columns.is-mobile > &.is-compact {
+    flex: none;
+    width: unset;
+  }
+
+  @for $i from 0 through 12 {
+    .columns.is-mobile > &.is-#{$i} {
+      flex: none;
+      width: math.max(0, math.percentage(math.div($i, 12)));
+    }
+
+    .columns.is-mobile > &.is-offset-#{$i} {
+      margin-inline-start: math.max(0, math.percentage(math.div($i, 12)));
+    }
+  }
+
+  @include mixins.mobile {
+    &.is-compact-mobile {
+      flex: none;
+      width: unset;
+    }
+
+    @for $i from 0 through 12 {
+      &.is-#{$i}-mobile {
+        flex: none;
+        width: math.max(0, math.percentage(math.div($i, 12)));
+      }
+
+      &.is-offset-#{$i}-mobile {
+        margin-inline-start: math.max(0, math.percentage(math.div($i, 12)));
+      }
+    }
+  }
+
+  @include mixins.tablet {
+    &.is-compact,
+    &.is-compact-tablet {
+      flex: none;
+      width: unset;
+    }
+
+    @for $i from 0 through 12 {
+      &.is-#{$i},
+      &.is-#{$i}-tablet {
+        flex: none;
+        width: math.max(0, math.percentage(math.div($i, 12)));
+      }
+
+      &.is-offset-#{$i},
+      &.is-offset-#{$i}-tablet {
+        margin-inline-start: math.max(0, math.percentage(math.div($i, 12)));
+      }
+    }
+  }
+
+  @include mixins.touch {
+    &.is-compact-touch {
+      flex: none;
+      width: unset;
+    }
+
+    @for $i from 0 through 12 {
+      &.is-#{$i}-touch {
+        flex: none;
+        width: math.max(0, math.percentage(math.div($i, 12)));
+      }
+
+      &.is-offset-#{$i}-touch {
+        margin-inline-start: math.max(0, math.percentage(math.div($i, 12)));
+      }
+    }
+  }
+
+  @include mixins.desktop {
+    &.is-compact-desktop {
+      flex: none;
+      width: unset;
+    }
+
+    @for $i from 0 through 12 {
+      &.is-#{$i}-desktop {
+        flex: none;
+        width: math.max(0, math.percentage(math.div($i, 12)));
+      }
+
+      &.is-offset-#{$i}-desktop {
+        margin-inline-start: math.max(0, math.percentage(math.div($i, 12)));
+      }
+    }
+  }
+
+  @include mixins.widescreen {
+    &.is-compact-widescreen {
+      flex: none;
+      width: unset;
+    }
+
+    @for $i from 0 through 12 {
+      &.is-#{$i}-widescreen {
+        flex: none;
+        width: math.max(0, math.percentage(math.div($i, 12)));
+      }
+
+      &.is-offset-#{$i}-widescreen {
+        margin-inline-start: math.max(0, math.percentage(math.div($i, 12)));
+      }
+    }
+  }
+
+  @include mixins.fullhd {
+    &.is-compact-fullhd {
+      flex: none;
+      width: unset;
+    }
+
+    @for $i from 0 through 12 {
+      &.is-#{$i}-fullhd {
+        flex: none;
+        width: math.max(0, math.percentage(math.div($i, 12)));
+      }
+
+      &.is-offset-#{$i}-fullhd {
+        margin-inline-start: math.max(0, math.percentage(math.div($i, 12)));
+      }
+    }
+  }
+}

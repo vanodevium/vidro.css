@@ -1,0 +1,11 @@
+@use "../utils/css";
+@use "../utils/initial";
+
+@mixin init {
+  @include css.register-vars(
+    (
+      "block-spacing": initial.$block-spacing,
+      "column-gap": initial.$column-gap,
+    )
+  );
+}

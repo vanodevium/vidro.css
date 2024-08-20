@@ -1,0 +1,67 @@
+@use "sass:math";
+
+@use "../utils/initial";
+@use "../mixins";
+
+$container-offset: 2 * initial.$gap !default;
+$container-max-width: initial.$fullhd !default;
+
+.container {
+  flex-grow: 1;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+
+  &.is-fluid {
+    max-width: none !important;
+    padding-left: initial.$gap;
+    padding-right: initial.$gap;
+    width: 100%;
+  }
+
+  &.#{initial.$class-prefix}is-max-tablet {
+    max-width: initial.$tablet - $container-offset;
+  }
+
+  @include mixins.desktop {
+    max-width: initial.$desktop - $container-offset;
+  }
+
+  @include mixins.until-widescreen {
+    &.#{initial.$class-prefix}is-widescreen:not(
+        .#{initial.$class-prefix}is-max-tablet
+      ):not(.#{initial.$class-prefix}is-max-desktop) {
+      max-width: math.min(initial.$widescreen, $container-max-width) -
+        $container-offset;
+    }
+  }
+
+  @include mixins.until-fullhd {
+    &.#{initial.$class-prefix}is-fullhd:not(
+        .#{initial.$class-prefix}is-max-tablet
+      ):not(.#{initial.$class-prefix}is-max-desktop):not(
+        .#{initial.$class-prefix}is-max-widescreen
+      ) {
+      max-width: math.min(initial.$fullhd, $container-max-width) -
+        $container-offset;
+    }
+  }
+
+  @include mixins.widescreen {
+    &:not(.#{initial.$class-prefix}is-max-tablet):not(
+        .#{initial.$class-prefix}is-max-desktop
+      ) {
+      max-width: math.min(initial.$widescreen, $container-max-width) -
+        $container-offset;
+    }
+  }
+
+  @include mixins.fullhd {
+    &:not(.#{initial.$class-prefix}is-max-tablet):not(
+        .#{initial.$class-prefix}is-max-desktop
+      ):not(.#{initial.$class-prefix}is-max-widescreen) {
+      max-width: math.min(initial.$fullhd, $container-max-width) -
+        $container-offset;
+    }
+  }
+}

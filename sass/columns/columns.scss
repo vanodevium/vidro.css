@@ -1,0 +1,178 @@
+@use "../utils/css";
+@use "../mixins";
+
+.columns {
+  margin-inline-start: calc(-1 * #{css.getVar("column-gap")});
+  margin-inline-end: calc(-1 * #{css.getVar("column-gap")});
+  margin-top: calc(-1 * #{css.getVar("column-gap")});
+
+  &:last-child {
+    margin-bottom: calc(-1 * #{css.getVar("column-gap")});
+  }
+
+  &:not(:last-child) {
+    margin-bottom: calc(
+      #{css.getVar("block-spacing")} - #{css.getVar("column-gap")}
+    );
+  }
+
+  // Modifiers
+
+  &.is-left {
+    justify-content: left;
+  }
+
+  &.is-centered {
+    justify-content: center;
+  }
+
+  &.is-right {
+    justify-content: right;
+  }
+
+  &.is-gapless {
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+
+    margin-top: 0;
+
+    & > .column {
+      margin: 0;
+      padding: 0 !important;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &.is-mobile {
+    display: flex;
+  }
+
+  &.is-multiline {
+    flex-wrap: wrap;
+  }
+
+  &.is-vcentered {
+    align-items: center;
+  }
+
+  // Responsiveness
+
+  @include mixins.tablet {
+    &:not(.is-desktop) {
+      display: flex;
+    }
+  }
+
+  @include mixins.desktop {
+    &.is-desktop {
+      display: flex;
+    }
+  }
+
+  @for $i from 0 through 8 {
+    &.is-gap-#{$i} {
+      @include css.register-vars(
+        (
+          "column-gap": #{$i * 0.25rem},
+        )
+      );
+    }
+
+    @include mixins.mobile {
+      &.is-gap-#{$i}-mobile {
+        @include css.register-vars(
+          (
+            "column-gap": #{$i * 0.25rem},
+          )
+        );
+      }
+    }
+
+    @include mixins.tablet {
+      &.is-gap-#{$i}-tablet {
+        @include css.register-vars(
+          (
+            "column-gap": #{$i * 0.25rem},
+          )
+        );
+      }
+    }
+
+    @include mixins.tablet-only {
+      &.is-gap-#{$i}-tablet-only {
+        @include css.register-vars(
+          (
+            "column-gap": #{$i * 0.25rem},
+          )
+        );
+      }
+    }
+
+    @include mixins.touch {
+      &.is-gap-#{$i}-touch {
+        @include css.register-vars(
+          (
+            "column-gap": #{$i * 0.25rem},
+          )
+        );
+      }
+    }
+
+    @include mixins.desktop {
+      &.is-gap-#{$i}-desktop {
+        @include css.register-vars(
+          (
+            "column-gap": #{$i * 0.25rem},
+          )
+        );
+      }
+    }
+
+    @include mixins.desktop-only {
+      &.is-gap-#{$i}-desktop-only {
+        @include css.register-vars(
+          (
+            "column-gap": #{$i * 0.25rem},
+          )
+        );
+      }
+    }
+
+    @include mixins.widescreen {
+      &.is-gap-#{$i}-widescreen {
+        @include css.register-vars(
+          (
+            "column-gap": #{$i * 0.25rem},
+          )
+        );
+      }
+    }
+
+    @include mixins.widescreen-only {
+      &.is-gap-#{$i}-widescreen-only {
+        @include css.register-vars(
+          (
+            "column-gap": #{$i * 0.25rem},
+          )
+        );
+      }
+    }
+
+    @include mixins.fullhd {
+      &.is-gap-#{$i}-fullhd {
+        @include css.register-vars(
+          (
+            "column-gap": #{$i * 0.25rem},
+          )
+        );
+      }
+    }
+  }
+}

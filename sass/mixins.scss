@@ -1,0 +1,134 @@
+@use "utils/initial";
+
+// Responsiveness
+
+@mixin from($device) {
+  @media screen and (min-width: $device) {
+    @content;
+  }
+}
+
+@mixin until($device) {
+  @media screen and (max-width: ($device - 1px)) {
+    @content;
+  }
+}
+
+@mixin between($from, $until) {
+  @media screen and (min-width: $from) and (max-width: ($until - 1px)) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: (initial.$tablet - 1px)) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: initial.$tablet), print {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media screen and (min-width: initial.$tablet) and (max-width: (initial.$desktop - 1px)) {
+    @content;
+  }
+}
+
+@mixin touch {
+  @media screen and (max-width: (initial.$desktop - 1px)) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: initial.$desktop) {
+    @content;
+  }
+}
+
+@mixin desktop-only {
+  @if initial.$widescreen-enabled {
+    @media screen and (min-width: initial.$desktop) and (max-width: (initial.$widescreen - 1px)) {
+      @content;
+    }
+  }
+}
+
+@mixin until-widescreen {
+  @if initial.$widescreen-enabled {
+    @media screen and (max-width: (initial.$widescreen - 1px)) {
+      @content;
+    }
+  }
+}
+
+@mixin widescreen {
+  @if initial.$widescreen-enabled {
+    @media screen and (min-width: initial.$widescreen) {
+      @content;
+    }
+  }
+}
+
+@mixin widescreen-only {
+  @if initial.$widescreen-enabled and initial.$fullhd-enabled {
+    @media screen and (min-width: initial.$widescreen) and (max-width: (initial.$fullhd - 1px)) {
+      @content;
+    }
+  }
+}
+
+@mixin until-fullhd {
+  @if initial.$fullhd-enabled {
+    @media screen and (max-width: (initial.$fullhd - 1px)) {
+      @content;
+    }
+  }
+}
+
+@mixin fullhd {
+  @if initial.$fullhd-enabled {
+    @media screen and (min-width: initial.$fullhd) {
+      @content;
+    }
+  }
+}
+
+@mixin breakpoint($name) {
+  $breakpoint: map-get(initial.$breakpoints, $name);
+
+  @if $breakpoint {
+    $from: map-get($breakpoint, "from");
+    $until: map-get($breakpoint, "until");
+
+    @if $from and $until {
+      @include between($from, $until) {
+        @content;
+      }
+    } @else if $from {
+      @include from($from) {
+        @content;
+      }
+    } @else if $until {
+      @include until($until) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin container-from($name, $width) {
+  @container #{$name} (min-width: #{$width}) {
+    @content;
+  }
+}
+
+@mixin container-until($name, $width) {
+  @container #{$name} (max-width: #{$width - 1px}) {
+    @content;
+  }
+}

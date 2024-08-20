@@ -1,0 +1,60 @@
+@use "../utils/initial";
+@use "../mixins";
+
+.#{initial.$helpers-prefix}hidden {
+  display: none !important;
+}
+
+@include mixins.mobile {
+  .#{initial.$helpers-prefix}hidden-mobile {
+    display: none !important;
+  }
+}
+
+@include mixins.tablet {
+  .#{initial.$helpers-prefix}hidden-tablet {
+    display: none !important;
+  }
+}
+
+@include mixins.tablet-only {
+  .#{initial.$helpers-prefix}hidden-tablet-only {
+    display: none !important;
+  }
+}
+
+@include mixins.touch {
+  .#{initial.$helpers-prefix}hidden-touch {
+    display: none !important;
+  }
+}
+
+@include mixins.desktop {
+  .#{initial.$helpers-prefix}hidden-desktop {
+    display: none !important;
+  }
+}
+
+@include mixins.desktop-only {
+  .#{initial.$helpers-prefix}hidden-desktop-only {
+    display: none !important;
+  }
+}
+
+@include mixins.widescreen {
+  .#{initial.$helpers-prefix}hidden-widescreen {
+    display: none !important;
+  }
+}
+
+@include mixins.widescreen-only {
+  .#{initial.$helpers-prefix}hidden-widescreen-only {
+    display: none !important;
+  }
+}
+
+@include mixins.fullhd {
+  .#{initial.$helpers-prefix}hidden-fullhd {
+    display: none !important;
+  }
+}

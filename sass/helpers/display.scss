@@ -1,0 +1,9 @@
+@use "../utils/initial";
+
+$displays: block flex inline inline-block inline-flex grid;
+
+@each $display in $displays {
+  .#{initial.$helpers-prefix}#{$display} {
+    display: $display !important;
+  }
+}

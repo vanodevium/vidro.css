@@ -1,0 +1,28 @@
+{
+  "name": "vidro.css",
+  "version": "0.0.1",
+  "description": "Easy as pie 12-column styling",
+  "license": "WTFPL",
+  "author": "Vano Devium",
+  "main": "vidro.scss",
+  "style": "css/vidro.min.css",
+  "scripts": {
+    "build": "npm run clean && npm run compile && npm run lint && npm run minify",
+    "clean": "rimraf css",
+    "compile": "sass --style=expanded --no-source-map vidro.scss css/vidro.css",
+    "lint": "stylelint --fix css/vidro.css",
+    "minify": "postcss css/vidro.css --no-map --use cssnano --output css/vidro.min.css",
+    "prettier": "prettier -w sass"
+  },
+  "devDependencies": {
+    "cssnano": "7.0.5",
+    "minireset.css": "0.0.7",
+    "modern-normalize": "3.0.0",
+    "open-props": "1.7.5",
+    "postcss-cli": "11.0.0",
+    "rimraf": "6.0.1",
+    "sass": "1.77.8",
+    "stylelint": "16.8.2",
+    "stylelint-config-standard": "36.0.1"
+  }
+}
