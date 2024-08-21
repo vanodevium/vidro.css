@@ -1,3 +1,19 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100%;
+}
+
 :root {
   --vidro-block-spacing: 1.5rem;
   --vidro-column-gap: 0.75rem;
@@ -14,7 +30,6 @@
   max-width: none !important;
   padding-left: 32px;
   padding-right: 32px;
-  width: 100%;
 }
 
 .container.is-max-tablet {
@@ -179,6 +194,130 @@
   margin-inline-start: 100%;
 }
 
+@media screen and (width >= 769px), print {
+  .column.is-compact {
+    flex: none;
+    width: unset;
+  }
+
+  .column.is-0 {
+    flex: none;
+    width: 0;
+  }
+
+  .column.is-offset-0 {
+    margin-inline-start: 0;
+  }
+
+  .column.is-1 {
+    flex: none;
+    width: 8.3333333333%;
+  }
+
+  .column.is-offset-1 {
+    margin-inline-start: 8.3333333333%;
+  }
+
+  .column.is-2 {
+    flex: none;
+    width: 16.6666666667%;
+  }
+
+  .column.is-offset-2 {
+    margin-inline-start: 16.6666666667%;
+  }
+
+  .column.is-3 {
+    flex: none;
+    width: 25%;
+  }
+
+  .column.is-offset-3 {
+    margin-inline-start: 25%;
+  }
+
+  .column.is-4 {
+    flex: none;
+    width: 33.3333333333%;
+  }
+
+  .column.is-offset-4 {
+    margin-inline-start: 33.3333333333%;
+  }
+
+  .column.is-5 {
+    flex: none;
+    width: 41.6666666667%;
+  }
+
+  .column.is-offset-5 {
+    margin-inline-start: 41.6666666667%;
+  }
+
+  .column.is-6 {
+    flex: none;
+    width: 50%;
+  }
+
+  .column.is-offset-6 {
+    margin-inline-start: 50%;
+  }
+
+  .column.is-7 {
+    flex: none;
+    width: 58.3333333333%;
+  }
+
+  .column.is-offset-7 {
+    margin-inline-start: 58.3333333333%;
+  }
+
+  .column.is-8 {
+    flex: none;
+    width: 66.6666666667%;
+  }
+
+  .column.is-offset-8 {
+    margin-inline-start: 66.6666666667%;
+  }
+
+  .column.is-9 {
+    flex: none;
+    width: 75%;
+  }
+
+  .column.is-offset-9 {
+    margin-inline-start: 75%;
+  }
+
+  .column.is-10 {
+    flex: none;
+    width: 83.3333333333%;
+  }
+
+  .column.is-offset-10 {
+    margin-inline-start: 83.3333333333%;
+  }
+
+  .column.is-11 {
+    flex: none;
+    width: 91.6666666667%;
+  }
+
+  .column.is-offset-11 {
+    margin-inline-start: 91.6666666667%;
+  }
+
+  .column.is-12 {
+    flex: none;
+    width: 100%;
+  }
+
+  .column.is-offset-12 {
+    margin-inline-start: 100%;
+  }
+}
+
 @media screen and (width <= 768px) {
   .column.is-compact-mobile {
     flex: none;
@@ -304,125 +443,125 @@
 }
 
 @media screen and (width >= 769px), print {
-  .column.is-compact, .column.is-compact-tablet {
+  .column.is-compact-tablet {
     flex: none;
     width: unset;
   }
 
-  .column.is-0, .column.is-0-tablet {
+  .column.is-0-tablet {
     flex: none;
     width: 0;
   }
 
-  .column.is-offset-0, .column.is-offset-0-tablet {
+  .column.is-offset-0-tablet {
     margin-inline-start: 0;
   }
 
-  .column.is-1, .column.is-1-tablet {
+  .column.is-1-tablet {
     flex: none;
     width: 8.3333333333%;
   }
 
-  .column.is-offset-1, .column.is-offset-1-tablet {
+  .column.is-offset-1-tablet {
     margin-inline-start: 8.3333333333%;
   }
 
-  .column.is-2, .column.is-2-tablet {
+  .column.is-2-tablet {
     flex: none;
     width: 16.6666666667%;
   }
 
-  .column.is-offset-2, .column.is-offset-2-tablet {
+  .column.is-offset-2-tablet {
     margin-inline-start: 16.6666666667%;
   }
 
-  .column.is-3, .column.is-3-tablet {
+  .column.is-3-tablet {
     flex: none;
     width: 25%;
   }
 
-  .column.is-offset-3, .column.is-offset-3-tablet {
+  .column.is-offset-3-tablet {
     margin-inline-start: 25%;
   }
 
-  .column.is-4, .column.is-4-tablet {
+  .column.is-4-tablet {
     flex: none;
     width: 33.3333333333%;
   }
 
-  .column.is-offset-4, .column.is-offset-4-tablet {
+  .column.is-offset-4-tablet {
     margin-inline-start: 33.3333333333%;
   }
 
-  .column.is-5, .column.is-5-tablet {
+  .column.is-5-tablet {
     flex: none;
     width: 41.6666666667%;
   }
 
-  .column.is-offset-5, .column.is-offset-5-tablet {
+  .column.is-offset-5-tablet {
     margin-inline-start: 41.6666666667%;
   }
 
-  .column.is-6, .column.is-6-tablet {
+  .column.is-6-tablet {
     flex: none;
     width: 50%;
   }
 
-  .column.is-offset-6, .column.is-offset-6-tablet {
+  .column.is-offset-6-tablet {
     margin-inline-start: 50%;
   }
 
-  .column.is-7, .column.is-7-tablet {
+  .column.is-7-tablet {
     flex: none;
     width: 58.3333333333%;
   }
 
-  .column.is-offset-7, .column.is-offset-7-tablet {
+  .column.is-offset-7-tablet {
     margin-inline-start: 58.3333333333%;
   }
 
-  .column.is-8, .column.is-8-tablet {
+  .column.is-8-tablet {
     flex: none;
     width: 66.6666666667%;
   }
 
-  .column.is-offset-8, .column.is-offset-8-tablet {
+  .column.is-offset-8-tablet {
     margin-inline-start: 66.6666666667%;
   }
 
-  .column.is-9, .column.is-9-tablet {
+  .column.is-9-tablet {
     flex: none;
     width: 75%;
   }
 
-  .column.is-offset-9, .column.is-offset-9-tablet {
+  .column.is-offset-9-tablet {
     margin-inline-start: 75%;
   }
 
-  .column.is-10, .column.is-10-tablet {
+  .column.is-10-tablet {
     flex: none;
     width: 83.3333333333%;
   }
 
-  .column.is-offset-10, .column.is-offset-10-tablet {
+  .column.is-offset-10-tablet {
     margin-inline-start: 83.3333333333%;
   }
 
-  .column.is-11, .column.is-11-tablet {
+  .column.is-11-tablet {
     flex: none;
     width: 91.6666666667%;
   }
 
-  .column.is-offset-11, .column.is-offset-11-tablet {
+  .column.is-offset-11-tablet {
     margin-inline-start: 91.6666666667%;
   }
 
-  .column.is-12, .column.is-12-tablet {
+  .column.is-12-tablet {
     flex: none;
     width: 100%;
   }
 
-  .column.is-offset-12, .column.is-offset-12-tablet {
+  .column.is-offset-12-tablet {
     margin-inline-start: 100%;
   }
 }

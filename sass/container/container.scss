@@ -16,7 +16,6 @@ $container-max-width: initial.$fullhd !default;
     max-width: none !important;
     padding-left: initial.$gap;
     padding-right: initial.$gap;
-    width: 100%;
   }
 
   &.#{initial.$class-prefix}is-max-tablet {

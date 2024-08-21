@@ -10,6 +10,7 @@
   flex-shrink: 1;
   padding: css.getVar("column-gap");
 
+  // case: .columns.is-mobile
   .columns.is-mobile > &.is-compact {
     flex: none;
     width: unset;
@@ -23,6 +24,25 @@
 
     .columns.is-mobile > &.is-offset-#{$i} {
       margin-inline-start: math.max(0, math.percentage(math.div($i, 12)));
+    }
+  }
+
+  // case: viewport is bigger than mobile
+  @include mixins.more-than-mobile {
+    &.is-compact {
+      flex: none;
+      width: unset;
+    }
+
+    @for $i from 0 through 12 {
+      &.is-#{$i} {
+        flex: none;
+        width: math.max(0, math.percentage(math.div($i, 12)));
+      }
+
+      &.is-offset-#{$i} {
+        margin-inline-start: math.max(0, math.percentage(math.div($i, 12)));
+      }
     }
   }
 
@@ -45,20 +65,17 @@
   }
 
   @include mixins.tablet {
-    &.is-compact,
     &.is-compact-tablet {
       flex: none;
       width: unset;
     }
 
     @for $i from 0 through 12 {
-      &.is-#{$i},
       &.is-#{$i}-tablet {
         flex: none;
         width: math.max(0, math.percentage(math.div($i, 12)));
       }
 
-      &.is-offset-#{$i},
       &.is-offset-#{$i}-tablet {
         margin-inline-start: math.max(0, math.percentage(math.div($i, 12)));
       }

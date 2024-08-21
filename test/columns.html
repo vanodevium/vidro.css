@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>vidro.css</title>
+  <link rel="stylesheet" href="../css/vidro.min.css">
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+
+    html, body {
+      overflow: hidden;
+    }
+
+    .column p {
+      color: #f1f3f5;
+      background-color: #4263eb;
+      margin: 0;
+      padding: 0;
+      text-wrap: nowrap;
+    }
+  </style>
+</head>
+<body>
+<section>
+  <div class="container is-fluid">
+    <div class="columns is-vcentered">
+      <div class="column is-4 is-offset-1 is-offset-0-desktop">
+        <p>is-4 <wbr>is-offset-1</p>
+      </div>
+      <div class="column is-3-tablet is-2-desktop">
+        <p>is-3-tablet <wbr>is-2-desktop</p>
+      </div>
+      <div class="column is-compact is-hidden-mobile is-hidden-tablet-only is-4-desktop">
+        <p>is-compact <wbr>is-hidden-mobile <wbr>is-hidden-tablet-only <wbr>is-4-desktop</p>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

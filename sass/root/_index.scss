@@ -1,5 +1,7 @@
 @use "root";
 
+@use "reset";
+
 :root {
   @include root.init;
 }

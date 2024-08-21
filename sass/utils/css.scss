@@ -19,9 +19,3 @@
   $varName: buildVarName($name, $prefix, $suffix);
   @return var(#{$varName});
 }
-
-@function getVarWithBackup($name, $backup, $prefix: "", $suffix: "") {
-  $varName: buildVarName($name, $prefix, $suffix);
-  $backupName: buildVarName($backup, $prefix, $suffix);
-  @return var(#{$varName}, var(#{$backupName}));
-}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Columns</title>
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .preview {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .preview p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div id="previews-wrapper">
+  <div id="previews"></div>
+</div>
+<script>
+  const breakpoints = [555, 777, 999, 1234];
+  const previews = document.querySelector('#previews');
+
+  function buildPreview(width) {
+    return `
+  <div style="width: ${width}px;" class="preview">
+    <p><strong>${width}px</strong></p>
+    <iframe width="${width}" height="100" src="./columns.html"></iframe>
+  </div>`;
+  }
+
+  function showPreviews() {
+    previews.innerHTML = breakpoints.map(width => buildPreview(width)).join("\n");
+  }
+
+  showPreviews();
+</script>
+</body>
+</html>

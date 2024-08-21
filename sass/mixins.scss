@@ -26,6 +26,12 @@
   }
 }
 
+@mixin more-than-mobile {
+  @media screen and (min-width: initial.$tablet), print {
+    @content;
+  }
+}
+
 @mixin tablet {
   @media screen and (min-width: initial.$tablet), print {
     @content;
