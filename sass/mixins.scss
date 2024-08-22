@@ -2,24 +2,6 @@
 
 // Responsiveness
 
-@mixin from($device) {
-  @media screen and (min-width: $device) {
-    @content;
-  }
-}
-
-@mixin until($device) {
-  @media screen and (max-width: ($device - 1px)) {
-    @content;
-  }
-}
-
-@mixin between($from, $until) {
-  @media screen and (min-width: $from) and (max-width: ($until - 1px)) {
-    @content;
-  }
-}
-
 @mixin mobile {
   @media screen and (max-width: (initial.$tablet - 1px)) {
     @content;
@@ -45,6 +27,12 @@
 }
 
 @mixin touch {
+  @media screen and (max-width: (initial.$desktop - 1px)) {
+    @content;
+  }
+}
+
+@mixin until-desktop {
   @media screen and (max-width: (initial.$desktop - 1px)) {
     @content;
   }
@@ -101,6 +89,24 @@
     @media screen and (min-width: initial.$fullhd) {
       @content;
     }
+  }
+}
+
+@mixin from($device) {
+  @media screen and (min-width: $device) {
+    @content;
+  }
+}
+
+@mixin until($device) {
+  @media screen and (max-width: ($device - 1px)) {
+    @content;
+  }
+}
+
+@mixin between($from, $until) {
+  @media screen and (min-width: $from) and (max-width: ($until - 1px)) {
+    @content;
   }
 }
 
