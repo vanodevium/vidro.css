@@ -3,8 +3,12 @@
 @use "../utils/initial";
 @use "../mixins";
 
-$container-offset: 2 * initial.$gap !default;
-$container-max-width: initial.$fullhd !default;
+$offset: 2 * initial.$gap !default;
+$max-width: initial.$fullhd !default;
+
+@function calc-max-width($value) {
+  @return math.min($value, $max-width) - $offset;
+}
 
 .container {
   flex-grow: 1;
@@ -18,49 +22,37 @@ $container-max-width: initial.$fullhd !default;
     padding-right: initial.$gap;
   }
 
-  &.#{initial.$class-prefix}is-max-tablet {
-    max-width: initial.$tablet - $container-offset;
+  &.is-max-tablet {
+    max-width: initial.$tablet - $offset;
   }
 
   @include mixins.desktop {
-    max-width: initial.$desktop - $container-offset;
+    max-width: initial.$desktop - $offset;
   }
 
   @include mixins.until-widescreen {
-    &.#{initial.$class-prefix}is-widescreen:not(
-        .#{initial.$class-prefix}is-max-tablet
-      ):not(.#{initial.$class-prefix}is-max-desktop) {
-      max-width: math.min(initial.$widescreen, $container-max-width) -
-        $container-offset;
+    &.is-widescreen:not(.is-max-tablet):not(.is-max-desktop) {
+      max-width: calc-max-width(initial.$widescreen);
     }
   }
 
   @include mixins.until-fullhd {
-    &.#{initial.$class-prefix}is-fullhd:not(
-        .#{initial.$class-prefix}is-max-tablet
-      ):not(.#{initial.$class-prefix}is-max-desktop):not(
-        .#{initial.$class-prefix}is-max-widescreen
+    &.is-fullhd:not(.is-max-tablet):not(.is-max-desktop):not(
+        .is-max-widescreen
       ) {
-      max-width: math.min(initial.$fullhd, $container-max-width) -
-        $container-offset;
+      max-width: calc-max-width(initial.$fullhd);
     }
   }
 
   @include mixins.widescreen {
-    &:not(.#{initial.$class-prefix}is-max-tablet):not(
-        .#{initial.$class-prefix}is-max-desktop
-      ) {
-      max-width: math.min(initial.$widescreen, $container-max-width) -
-        $container-offset;
+    &:not(.is-max-tablet):not(.is-max-desktop) {
+      max-width: calc-max-width(initial.$widescreen);
     }
   }
 
   @include mixins.fullhd {
-    &:not(.#{initial.$class-prefix}is-max-tablet):not(
-        .#{initial.$class-prefix}is-max-desktop
-      ):not(.#{initial.$class-prefix}is-max-widescreen) {
-      max-width: math.min(initial.$fullhd, $container-max-width) -
-        $container-offset;
+    &:not(.is-max-tablet):not(.is-max-desktop):not(.is-max-widescreen) {
+      max-width: calc-max-width(initial.$fullhd);
     }
   }
 }

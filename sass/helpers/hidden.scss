@@ -1,60 +1,59 @@
-@use "../utils/initial";
 @use "../mixins";
 
-.#{initial.$helpers-prefix}hidden {
+.is-hidden {
   display: none !important;
 }
 
 @include mixins.mobile {
-  .#{initial.$helpers-prefix}hidden-mobile {
+  .is-hidden-mobile {
     display: none !important;
   }
 }
 
 @include mixins.tablet {
-  .#{initial.$helpers-prefix}hidden-tablet {
+  .is-hidden-tablet {
     display: none !important;
   }
 }
 
 @include mixins.tablet-only {
-  .#{initial.$helpers-prefix}hidden-tablet-only {
+  .is-hidden-tablet-only {
     display: none !important;
   }
 }
 
 @include mixins.touch {
-  .#{initial.$helpers-prefix}hidden-touch {
+  .is-hidden-touch {
     display: none !important;
   }
 }
 
 @include mixins.desktop {
-  .#{initial.$helpers-prefix}hidden-desktop {
+  .is-hidden-desktop {
     display: none !important;
   }
 }
 
 @include mixins.desktop-only {
-  .#{initial.$helpers-prefix}hidden-desktop-only {
+  .is-hidden-desktop-only {
     display: none !important;
   }
 }
 
 @include mixins.widescreen {
-  .#{initial.$helpers-prefix}hidden-widescreen {
+  .is-hidden-widescreen {
     display: none !important;
   }
 }
 
 @include mixins.widescreen-only {
-  .#{initial.$helpers-prefix}hidden-widescreen-only {
+  .is-hidden-widescreen-only {
     display: none !important;
   }
 }
 
 @include mixins.fullhd {
-  .#{initial.$helpers-prefix}hidden-fullhd {
+  .is-hidden-fullhd {
     display: none !important;
   }
 }
