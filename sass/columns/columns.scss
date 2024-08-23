@@ -1,5 +1,5 @@
 @use "../utils/css";
-@use "../mixins";
+@use "../utils/mixins";
 
 .columns {
   margin-inline-start: calc(-1 * #{css.getVar("column-gap")});

@@ -4,12 +4,12 @@
   "description": "Easy as pie 12-column styling",
   "license": "WTFPL",
   "author": "Vano Devium",
-  "main": "vidro.scss",
+  "main": "sass/vidro.scss",
   "style": "css/vidro.min.css",
   "scripts": {
     "build": "npm run clean && npm run compile && npm run lint && npm run minify",
     "clean": "rimraf css",
-    "compile": "sass --style=expanded --no-source-map vidro.scss css/vidro.css",
+    "compile": "sass --style=expanded --no-source-map sass/vidro.scss css/vidro.css",
     "lint": "stylelint --fix css/vidro.css",
     "minify": "postcss css/vidro.css --no-map --use cssnano --output css/vidro.min.css",
     "prettier": "prettier -w sass"

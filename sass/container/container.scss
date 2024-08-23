@@ -1,7 +1,7 @@
 @use "sass:math";
 
 @use "../utils/initial";
-@use "../mixins";
+@use "../utils/mixins";
 
 $offset: 2 * initial.$gap !default;
 $max-width: initial.$fullhd !default;
