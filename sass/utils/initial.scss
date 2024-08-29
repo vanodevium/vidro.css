@@ -49,21 +49,21 @@ $column-gap: 0.75rem !default;
 // Responsiveness
 
 // The container horizontal gap, which acts as the offset for breakpoints
-$gap: 32px !default;
+$gap: 2rem !default;
 $double-gap: 2 * $gap !default; // 64px
 
 // 960, 1152, and 1344 have been chosen because they are divisible by both 12 and 16
-$tablet: 769px !default;
+$tablet: 48rem !default;
 
 // 960px container + 4rem
-$desktop: 960px + $double-gap !default;
+$desktop: 60rem + $double-gap !default;
 
 // 1152px container + 4rem
-$widescreen: 1152px + $double-gap !default;
+$widescreen: 72rem + $double-gap !default;
 $widescreen-enabled: true !default;
 
 // 1344px container + 4rem
-$fullhd: 1344px + $double-gap !default;
+$fullhd: 84rem + $double-gap !default;
 $fullhd-enabled: true !default;
 $breakpoints: (
   "mobile": (

@@ -3,50 +3,50 @@
 // Responsiveness
 
 @mixin mobile {
-  @media screen and (max-width: (initial.$tablet - 1px)) {
+  @media screen and (width < initial.$tablet) {
     @content;
   }
 }
 
 @mixin more-than-mobile {
-  @media screen and (min-width: initial.$tablet), print {
+  @media screen and (width >= initial.$tablet), print {
     @content;
   }
 }
 
 @mixin tablet {
-  @media screen and (min-width: initial.$tablet), print {
+  @media screen and (width >= initial.$tablet), print {
     @content;
   }
 }
 
 @mixin tablet-only {
-  @media screen and (min-width: initial.$tablet) and (max-width: (initial.$desktop - 1px)) {
+  @media screen and (width >= initial.$tablet) and (width < initial.$desktop) {
     @content;
   }
 }
 
 @mixin touch {
-  @media screen and (max-width: (initial.$desktop - 1px)) {
+  @media screen and (width < initial.$desktop) {
     @content;
   }
 }
 
 @mixin until-desktop {
-  @media screen and (max-width: (initial.$desktop - 1px)) {
+  @media screen and (width < initial.$desktop) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media screen and (min-width: initial.$desktop) {
+  @media screen and (width >= initial.$desktop) {
     @content;
   }
 }
 
 @mixin desktop-only {
   @if initial.$widescreen-enabled {
-    @media screen and (min-width: initial.$desktop) and (max-width: (initial.$widescreen - 1px)) {
+    @media screen and (width >= initial.$desktop) and (width < initial.$widescreen) {
       @content;
     }
   }
@@ -54,7 +54,7 @@
 
 @mixin until-widescreen {
   @if initial.$widescreen-enabled {
-    @media screen and (max-width: (initial.$widescreen - 1px)) {
+    @media screen and (width < initial.$widescreen) {
       @content;
     }
   }
@@ -62,7 +62,7 @@
 
 @mixin widescreen {
   @if initial.$widescreen-enabled {
-    @media screen and (min-width: initial.$widescreen) {
+    @media screen and (width >= initial.$widescreen) {
       @content;
     }
   }
@@ -70,7 +70,7 @@
 
 @mixin widescreen-only {
   @if initial.$widescreen-enabled and initial.$fullhd-enabled {
-    @media screen and (min-width: initial.$widescreen) and (max-width: (initial.$fullhd - 1px)) {
+    @media screen and (width >= initial.$widescreen) and (width < initial.$fullhd) {
       @content;
     }
   }
@@ -78,7 +78,7 @@
 
 @mixin until-fullhd {
   @if initial.$fullhd-enabled {
-    @media screen and (max-width: (initial.$fullhd - 1px)) {
+    @media screen and (width < initial.$fullhd) {
       @content;
     }
   }
@@ -86,26 +86,26 @@
 
 @mixin fullhd {
   @if initial.$fullhd-enabled {
-    @media screen and (min-width: initial.$fullhd) {
+    @media screen and (width >= initial.$fullhd) {
       @content;
     }
   }
 }
 
 @mixin from($device) {
-  @media screen and (min-width: $device) {
+  @media screen and (width >= $device) {
     @content;
   }
 }
 
 @mixin until($device) {
-  @media screen and (max-width: ($device - 1px)) {
+  @media screen and (width < $device) {
     @content;
   }
 }
 
 @mixin between($from, $until) {
-  @media screen and (min-width: $from) and (max-width: ($until - 1px)) {
+  @media screen and (width >= $from) and (width < $until) {
     @content;
   }
 }
