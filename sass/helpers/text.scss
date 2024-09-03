@@ -1,0 +1,14 @@
+@use "../utils/initial";
+
+$alignments: (
+  "centered": "center",
+  "justified": "justify",
+  "left": "left",
+  "right": "right",
+);
+
+@each $alignment, $text-align in $alignments {
+  .#{initial.$helpers-has-prefix}text-#{$alignment} {
+    text-align: #{$text-align} !important;
+  }
+}
